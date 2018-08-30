@@ -12,35 +12,47 @@ var wins = document.getElementById("wins");
 var guessLeft = document.getElementById("guesses-left");
 var losses = document.getElementById("losses");
 
-// This function is run whenever the user presses a key.
-document.onkeyup = function(event) {
+// Wait until the DOM is fully loaded and then run the function
+window.addEventListener("DOMContentLoaded", function(){
+
+  // This function is run whenever the user presses a key.
+  document.onkeyup = function(event) {
     
+    // event.keyCode and event.code return the numeric code for the character 
+    // they produce. When passed to String.fromCharCode(), we get the actual
+    // character that was produced by the key input, but this excludes keystrokes
+    // that don't produce a visible character (space, backspace, tab, enter, etc.)
+    // From there, we convert that character to lower-case.
+    var userGuess = String.fromCharCode(event.keyCode || event.code).toLowerCase();
+    var found = false;
+
+
     // Determines which key was pressed.
     var userGuess = event.key;
+    userGuess.textContent = event.key;
 
     // Randomly chooses a choice from the options array. This is the Computer's guess.
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
     // This logic determines the outcome of the game (win/guess left), and increments or decrements the appropriate number.
     if (userGuess === computerGuess) {
-        wins++;
+      wins++;
     } else {
-      guessLeft--;
-    }
-
-    if (guessLeft === 0) {
-
+      guessesLeft--;
     }
     
-    console.log(event);
-    userGuess.textContent = event.key;
-    
+    // If the guess number reaches 0, add 1 to losses.
+    if (guessesLeft === 0) {
+      losses++;
+    }
+
+
 
   };
+});
+
+      
     
-
-
-
 
 
 
