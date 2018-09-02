@@ -40,7 +40,7 @@ var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l
 			"<p>Wins: " + wins + "</p>" +
 			"<p>Losses: " + losses + "</p>" +
 			"<p>Guesses Left: " + numGuesses + "</p>" +
-			"<p>Your Guesses so far: " + guessChoices.join(", ") + "</p>";
+			"<p>Guesses So Far: " + guessChoices.join(", ") + "</p>";
 
 			document.querySelector("#game").innerHTML = html;
 
