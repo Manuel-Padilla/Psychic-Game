@@ -18,7 +18,7 @@ var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l
 
 				if (userGuess === computerGuess) {
 					wins++;
-					numGuesses = 9;
+					numGuesses = 10;
 					guessChoices = [];
 				}
 
@@ -29,7 +29,7 @@ var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l
 
 				if (numGuesses === 0) {
 
-				numGuesses = 9;
+				numGuesses = 10;
 				losses ++;
 				guessChoices = [];
 
